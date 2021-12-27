@@ -8,14 +8,21 @@
   import { getMainDefinition } from "@apollo/client/utilities";
 
   function createApolloClient() {
+    const headers = {
+      "x-hasura-admin-secret": "secretkey",
+    };
     const httpLink = new HttpLink({
       uri: "https://myweblab3.herokuapp.com/v1/graphql",
+      headers,
     });
     const cache = new InMemoryCache();
     const wsLink = new WebSocketLink({
       uri: "wss://myweblab3.herokuapp.com/v1/graphql",
       options: {
         reconnect: true,
+        connectionParams: {
+          headers,
+        },
       },
     });
     const link = split(
