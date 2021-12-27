@@ -36,13 +36,12 @@ export default class OperationDocsStore {
   static subscribeToAll() {
     return gql`
       subscription MySubscription {
-  students {
-    id
-    name
-    teacher_id
-  }
-}
-
+        students {
+          id
+          name
+          teacher_id
+        }
+      }
     `;
   }
 }
