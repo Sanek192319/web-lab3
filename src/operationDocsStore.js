@@ -13,7 +13,7 @@ export default class OperationDocsStore {
 
   static addOne(name) {
     return `mutation MyMutation {
-  insert_students(objects: {name: "${name}"}) {
+  insert_students(objects: {nae: "${name}"}) {
     returning {
       id
       name
@@ -24,9 +24,9 @@ export default class OperationDocsStore {
 `;
   }
 
-  static deleteByName(name) {
+  static deleteById(id) {
     return `mutation MyMutation {
-  delete_students(where: {name: {_eq: "${name}"}}) {
+  delete_students(where: {id: {_eq: "${id}"}}) {
     affected_rows
   }
 }
