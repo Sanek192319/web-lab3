@@ -13,7 +13,7 @@ export default class OperationDocsStore {
 
   static addOne(name) {
     return `mutation MyMutation {
-  insert_students(objects: {nae: "${name}"}) {
+  insert_students(objects: {name: "${name}"}) {
     returning {
       id
       name
